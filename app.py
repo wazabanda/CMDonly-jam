@@ -3,7 +3,7 @@ import os
 from pytimedinput import timedKey
 from colorama import *
 from entity import *
-
+#todo 
 GAMELOOPSPEED = 1
 player = entity("@ ",0,0)
 #? an 9X9 board i could have done this in numpy but i did'nt

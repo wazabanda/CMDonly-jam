@@ -3,9 +3,24 @@ import os
 from pytimedinput import timedKey
 from colorama import *
 from entity import *
-#todo 
+import pyfiglet
+
+
+#? main stuff
 GAMELOOPSPEED = 1
-player = entity("@ ",0,0)
+
+
+
+Entities = []
+
+player = entity("@ ",0,0,1)
+Entities.append(player)
+#? a short intro
+introBanner = pri = pyfiglet.figlet_format("A Game By")
+introBanner2 = pri = pyfiglet.figlet_format("waza_Dev")
+print(introBanner)
+print(introBanner2)
+time.sleep(2)
 #? an 9X9 board i could have done this in numpy but i did'nt
 BOARD = [
     ["* ","* ","* ","* ","* ","* ","* ","* ","* ",],
@@ -24,20 +39,31 @@ def printBoard():
             printedBoard += j +" "
         printedBoard += "\n"
     return printedBoard
+
+def createEntity(displaySprite,xposition,yposition,deltax,deltay):
+    newEntity  = entity(displaySprite,xposition,yposition,deltax,deltay)
+    Entities.append(newEntity)
+    return newEntity
+
+
+print(Entities)
 while True:
     os.system("cls")
-    #? input 
+    for i in Entities:
+        i.update(BOARD)
+        i.render(BOARD)
     print(printBoard())
+    #? input 
     userText, timedOut = timedKey(allowCharacters="wasd",timeout=GAMELOOPSPEED)
     if(timedOut):
         continue
     else:
-        if userText == "w":
+        if userText.lower == "w":
             player.move(0,-1,BOARD)
-        elif userText == "s":
+        elif userText.lower == "s":
             player.move(0,1,BOARD)
-        elif userText == "a":
+        elif userText.lower == "a":
             player.move(-1,0,BOARD)
-        elif userText == "d":
+        elif userText.lower == "d":
             player.move(1,0,BOARD)
     

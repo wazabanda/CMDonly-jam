@@ -1,0 +1,5 @@
+colorama==0.4.4
+figlet==0.0.1
+numpy==1.21.3
+pyfiglet==0.8.post1
+pytimedinput==2.0.0

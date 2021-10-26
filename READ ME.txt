@@ -1,0 +1,5 @@
+Step one
+run pip install requirements.txt
+Note you need to have python installed on your pc
+
+open CMD in the project folder and run app.py

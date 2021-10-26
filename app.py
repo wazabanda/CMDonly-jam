@@ -7,6 +7,7 @@ from colorama import *
 from entity import *
 from Board import *
 import pyfiglet
+from pyfiglet import fonts,figlet_format
 
 
 #? main stuff
@@ -22,8 +23,8 @@ Entities = []
 minDistance = 2
 ENTITYCOUNT = 0
 #? a short intro Delete it if you want
-introBanner  = pyfiglet.figlet_format("A Game By")
-introBanner2  =pyfiglet.figlet_format("waza_Dev")
+introBanner  = figlet_format("A Game By")
+introBanner2  =figlet_format("waza_Dev")
 print(Fore.YELLOW+ introBanner + Fore.WHITE)
 print(Fore.BLUE + introBanner2+ Fore.WHITE)
 time.sleep(2)
@@ -128,7 +129,7 @@ while Playing:
         print(Fore.WHITE + printBoard())
 
     #? input 
-    userText, timedOut = timedKey(allowCharacters="wasdq",timeout=GAMELOOPSPEED)
+    userText, timedOut = timedKey(allowCharacters="wasdqWASDQ",timeout=GAMELOOPSPEED)
     if(timedOut):
         continue
 
